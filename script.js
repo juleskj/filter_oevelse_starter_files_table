@@ -28,30 +28,34 @@ const vehicles = [
   { type: "Løbehjul", passengers: 1, isElectric: true },
 ];
 const tbodyPointer = document.querySelector("tbody");
+
 showTheseVehicles(vehicles);
 
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
     /*
-    let bgColor;
+    let colorIsEl;
     if (each.isElectric === true) {
-      bgColor = "lightgreen";
+      colorIsEl = "lightgreen";
     } else {
-      let bgColor = "";
+      let colorIsEl = "";
     }*/
 
-    let bgColor = each.isElectric ? "lightgreen" : "";
+    let colorIsEl = each.isElectric ? "lightgreen" : "";
+    let colorIsTandem = each.isTandem ? "lightgreen" : "";
 
     tbodyPointer.innerHTML += `<tr >
   <td>${each.type || " "}</td>
   <td>${each.fuel ? `${each.fuel}` : "El"}</td>
   <td>${each.passengers || "none"}</td> 
   <td>${each.stops ? `${each.stops}` : "No stops"}</td>
-  <td>${each.ownedBy || " "}</td>
-<td style="background-color: ${bgColor}; ">${
+  <td>${each.ownedBy || "none"}</td>
+<td style="background-color: ${colorIsEl}; ">${
       each.isElectric ? `Electric ${each.type}` : "Not Electric"
     }</td>
-  <td>${each.isTandem || " "}</td>
+  <td style="background-color: ${colorIsTandem}; " >${
+      each.isTandem ? "Er en tandem" : "Er ikke en tandem"
+    }</td>
 </tr>`;
   });
 }

@@ -29,18 +29,34 @@ const vehicles = [
 ];
 const tbodyPointer = document.querySelector("tbody");
 
-showTheseVehicles(vehicles);
+/*
+document
+  .querySelector(".showElVehicles")
+  .addEventListener("mousedown", showTheseVehicles(isEl));
+
+const isEl = vehicles.filter(isElVehicles);
+console.log(isEl);
+
+//her tjekker jeg om køretøjet er elektrik
+function isElVehicles(vehicles) {
+  console.log("clicked");
+  if (vehicles.isElectric === true) {
+    return true;
+  }
+}
+*/
+
+document.querySelector(".showAll").addEventListener("mousedown", () => {
+  return showTheseVehicles(vehicles);
+});
+
+// showTheseVehicles(vehicles);
 
 function showTheseVehicles(arr) {
-  arr.forEach((each) => {
-    /*
-    let colorIsEl;
-    if (each.isElectric === true) {
-      colorIsEl = "lightgreen";
-    } else {
-      let colorIsEl = "";
-    }*/
+  console.log("clicked");
+  tbodyPointer.innerHTML = "";
 
+  arr.forEach((each) => {
     let colorIsEl = each.isElectric ? "lightgreen" : "";
     let colorIsTandem = each.isTandem ? "lightgreen" : "";
 
@@ -58,21 +74,6 @@ function showTheseVehicles(arr) {
     }</td>
 </tr>`;
   });
-}
-
-const showElVehiclesBtn = document.querySelector(".showElVehicles");
-//her tjekker jeg om hvilke vehicles som har isEletric der er true
-
-showElVehiclesBtn.addEventListener("mousedown", isElVehicles);
-//her tjekker jeg om køretøjet er elektrik
-function isElVehicles(vehicles) {
-  console.log("clicked");
-  if (vehicles.isElectric === true) {
-    return vehicles;
-  }
-
-  const isEl = vehicles.filter(isElVehicles);
-  console.log(isEl);
 }
 
 //her tjekker jeg om passengers er større end 2

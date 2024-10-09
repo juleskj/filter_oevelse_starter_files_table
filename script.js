@@ -30,30 +30,23 @@ const vehicles = [
 const tbodyPointer = document.querySelector("tbody");
 
 /*
-document
-  .querySelector(".showElVehicles")
-  .addEventListener("mousedown", showTheseVehicles(isEl));
-
-const isEl = vehicles.filter(isElVehicles);
-console.log(isEl);
-
-//her tjekker jeg om køretøjet er elektrik
 function isElVehicles(vehicles) {
-  console.log("clicked");
   if (vehicles.isElectric === true) {
     return true;
   }
 }
-*/
 
+const isEl = vehicles.filter(isElVehicles);
+
+document.querySelector(".showElVehicles").addEventListener("mousedown", () => {
+  return isEl(vehicles);
+});
+*/
 document.querySelector(".showAll").addEventListener("mousedown", () => {
   return showTheseVehicles(vehicles);
 });
 
-// showTheseVehicles(vehicles);
-
 function showTheseVehicles(arr) {
-  console.log("clicked");
   tbodyPointer.innerHTML = "";
 
   arr.forEach((each) => {
